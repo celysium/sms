@@ -3,30 +3,38 @@
 namespace Celysium\MessageBroker\Drivers;
 
 use Celysium\MessageBroker\Contracts\SmsInterface;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class Kavenegar implements SmsInterface
 {
+    private string $to = '';
 
-    public function receiver(string $to)
+    public function to(string $number): void
     {
-        return $this;
+        $this->to = $number;
     }
 
-    public function send(array $data): void
+    public function send(array $data): Response
     {
-        $data  = [
-            'receptor' => '',
-
+        $key = config('sms.kavenegar.api_key');
+        $data = [
+            'receptor' => $this->to,
+            'message' => $data['message']
         ];
-        Http::get('https://api.kavenegar.com/v1/613472435563797A37677331D/sms/send.json', $data);
-        https://api.kavenegar.com/v1/613472435563797A37677331D/sms/send.json?receptor=09125258596,09128585774&sender=10004346&message=test
-
+        return Http::withHeaders(['Content-Type' => 'application/json'])->get("https://api.kavenegar.com/v1/$key/sms/send.json", $data);
     }
 
-    public function otp(array $data): void
+    public function otp(array $data): Response
     {
-        //https://api.kavenegar.com/v1/{API-KEY}/verify/lookup.json
-        // TODO: Implement otp() method.
+        $key = config('sms.kavenegar.api_key');
+        $token = config('sms.kavenegar.token');
+        $data = [
+            'receptor' => $this->to,
+            'token' => $token,
+            'template' => $data['template']
+        ];
+
+        return Http::get("https://api.kavenegar.com/v1/$key/verify/lookup.json", $data);
     }
 }

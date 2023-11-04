@@ -8,9 +8,9 @@ return [
     'payam' => [
         'api' => env('PAYAM_SMS_API', 'https://new.payamsms.com/services/rest/index.php'),
         'organization' => env('PAYAM_SMS_ORGANIZATION', 'ayria'),
-        'username' => env('PAYAM_SMS_USERNAME', 'zoot'),
-        'password' => env('PAYAM_SMS_PASSWORD', 'Zoot@2023'),
-        'sender' => env('PAYAM_SMS_SENDER', '2000144563984'),
+        'username' => env('PAYAM_SMS_USERNAME'),
+        'password' => env('PAYAM_SMS_PASSWORD'),
+        'sender' => env('PAYAM_SMS_SENDER'),
     ]
 ];
 

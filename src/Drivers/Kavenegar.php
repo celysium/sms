@@ -10,9 +10,10 @@ class Kavenegar implements SmsInterface
 {
     private string $to = '';
 
-    public function to(string $number): void
+    public function to(string $number): self
     {
         $this->to = $number;
+        return $this;
     }
 
     public function send(array $data): Response

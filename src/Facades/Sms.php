@@ -6,7 +6,8 @@ use Celysium\Sms\Contracts\SmsInterface;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static SmsInterface receiver(string $to)
+ * @method static SmsInterface driver($driver = null)
+ * @method static SmsInterface to(string $number)
  * @method static SmsInterface send(array $data)
  * @method static SmsInterface otp(array $data)
  */

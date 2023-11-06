@@ -1,6 +1,6 @@
 <?php
 
-namespace Celysium\MessageBroker;
+namespace Celysium\Sms;
 
 use Illuminate\Support\ServiceProvider;
 

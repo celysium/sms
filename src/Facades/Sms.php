@@ -1,8 +1,8 @@
 <?php
 
-namespace Celysium\MessageBroker\Facades;
+namespace Celysium\Sms\Facades;
 
-use Celysium\MessageBroker\Contracts\SmsInterface;
+use Celysium\Sms\Contracts\SmsInterface;
 use Illuminate\Support\Facades\Facade;
 
 /**

@@ -1,10 +1,10 @@
 <?php
 
-namespace Celysium\MessageBroker;
+namespace Celysium\Sms;
 
-use Celysium\MessageBroker\Contracts\SmsInterface;
-use Celysium\MessageBroker\Drivers\Kavenegar;
-use Celysium\MessageBroker\Drivers\Payam;
+use Celysium\Sms\Contracts\SmsInterface;
+use Celysium\Sms\Drivers\Kavenegar;
+use Celysium\Sms\Drivers\Payam;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Manager;
 

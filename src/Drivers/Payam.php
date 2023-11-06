@@ -1,8 +1,8 @@
 <?php
 
-namespace Celysium\MessageBroker\Drivers;
+namespace Celysium\Sms\Drivers;
 
-use Celysium\MessageBroker\Contracts\SmsInterface;
+use Celysium\Sms\Contracts\SmsInterface;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;

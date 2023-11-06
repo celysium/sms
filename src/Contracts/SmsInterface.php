@@ -1,6 +1,6 @@
 <?php
 
-namespace Celysium\MessageBroker\Contracts;
+namespace Celysium\Sms\Contracts;
 
 use Illuminate\Http\Client\Response;
 

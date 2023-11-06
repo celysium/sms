@@ -5,16 +5,9 @@ namespace Celysium\Sms;
 use Celysium\Sms\Contracts\SmsInterface;
 use Celysium\Sms\Drivers\Kavenegar;
 use Celysium\Sms\Drivers\Payam;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Support\Manager;
 
-class Sms extends Manager
+class Sms
 {
-    public function __construct(Container $container)
-    {
-        parent::__construct($container);
-    }
-
     /**
      * @param $driver
      * @return SmsInterface

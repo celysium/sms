@@ -9,8 +9,8 @@ class SmsServiceProvider extends ServiceProvider
     public function register(): void
     {
 
-        $this->app->bind('sms', function ($app) {
-            return new Sms($app);
+        $this->app->bind('sms', function () {
+            return new Sms();
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../config/sms.php', 'sms');

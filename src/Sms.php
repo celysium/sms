@@ -12,18 +12,13 @@ class Sms
      * @param $driver
      * @return SmsInterface
      */
-    public function driver($driver = null): SmsInterface
+    public static function driver($driver = null): SmsInterface
     {
-        $driver = $driver ?: $this->getDefaultDriver();
+        $driver = $driver ?: config('sms.default');
 
         return match (strtolower($driver)) {
             'kavenegar' => new Kavenegar(),
             'payam' => new Payam()
         };
-    }
-
-    public function getDefaultDriver()
-    {
-        return config('sms.default');
     }
 }

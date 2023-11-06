@@ -20,7 +20,7 @@ class Kavenegar implements SmsInterface
         $key = config('sms.kavenegar.api_key');
         $data = [
             'receptor' => $this->to,
-            'message' => $data['message']
+            'message'  => $data['message']
         ];
         return Http::withHeaders(['Content-Type' => 'application/json'])->get("https://api.kavenegar.com/v1/$key/sms/send.json", $data);
     }
@@ -28,12 +28,7 @@ class Kavenegar implements SmsInterface
     public function otp(array $data): Response
     {
         $key = config('sms.kavenegar.api_key');
-        $token = config('sms.kavenegar.token');
-        $data = [
-            'receptor' => $this->to,
-            'token' => $token,
-            'template' => $data['template']
-        ];
+        $data = array_merge($data, ['receptor' => $this->to]);
 
         return Http::get("https://api.kavenegar.com/v1/$key/verify/lookup.json", $data);
     }
